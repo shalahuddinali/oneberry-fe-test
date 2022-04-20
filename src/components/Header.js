@@ -7,7 +7,7 @@ const Header = () => {
 		<div>
 			<Navbar
 				expand="lg"
-				bg="secondary"
+				bg="primary"
 				variant="dark"
 				className=" py-1 px-3 flex-column align-items-start">
 				<Navbar.Brand className="text-wrap fs-2 fw-bold">
@@ -20,17 +20,17 @@ const Header = () => {
 			</Navbar>
 			<Navbar
 				expand="lg"
-				bg="secondary"
+				bg="primary"
 				variant="dark"
 				className="p-2 opacity-75">
 				<Nav>
-					<Nav.Link as={Link} to="/procurement">
+					<Nav.Link as={Link} to="/procurement" className="me-5">
 						Procurement
 					</Nav.Link>
-					<Nav.Link as={Link} to="/suppliers">
+					<Nav.Link as={Link} to="/suppliers" className="me-5">
 						Suppliers
 					</Nav.Link>
-					<Nav.Link as={Link} to="/agencies">
+					<Nav.Link as={Link} to="/agencies" className="me-5">
 						Agencies
 					</Nav.Link>
 				</Nav>
