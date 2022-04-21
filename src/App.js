@@ -1,11 +1,14 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+
 import Header from './components/Header';
-import Procurement from './pages/Procurement';
+
 import Agencies from './pages/Agencies';
 import Suppliers from './pages/Suppliers';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Procurement from './pages/Procurement';
+
 import { fetchProcurement, fetchAgency } from './utils';
 
 function App() {
@@ -29,7 +32,7 @@ function App() {
 				setAgencies(agencyData.data);
 				setLoading(false);
 			} catch (error) {
-				console.error(error);
+				console.error(error.message);
 			}
 		};
 		getProcurements();
@@ -51,7 +54,10 @@ function App() {
 						}
 					/>
 					<Route path="suppliers" element={<Suppliers />} />
-					<Route path="agencies" element={<Agencies agencies={agencies} />} />
+					<Route
+						path="agencies"
+						element={<Agencies agencies={agencies} loading={loading} />}
+					/>
 
 					<Route
 						path="*"

@@ -2,14 +2,14 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
-const Agencies = ({ agencies, loading }) => {
+const SupplierList = ({ suppliers }) => {
 	return (
 		<Container className="mt-4">
-			<h3>List of Agencies</h3>
+			<h3>List of Suppliers</h3>
 			<Row>
-				{agencies.map((agency, index) => (
+				{suppliers.map((supplier, index) => (
 					<Col key={index} md={12} lg={6} xl={4} className="my-2 my-md-3">
-						{agency}
+						{supplier}
 					</Col>
 				))}
 			</Row>
@@ -17,4 +17,4 @@ const Agencies = ({ agencies, loading }) => {
 	);
 };
 
-export default Agencies;
+export default SupplierList;

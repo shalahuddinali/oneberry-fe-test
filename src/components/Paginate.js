@@ -1,5 +1,6 @@
-import Pagination from 'react-bootstrap/Pagination';
 import Container from 'react-bootstrap/Container';
+import Pagination from 'react-bootstrap/Pagination';
+
 import { usePagination, DOTS } from './usePagination';
 
 const Paginate = ({ itemsCount, currentPage, setCurrentPage, pageSize }) => {

@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+
+import Loading from '../components/Loading';
+import Paginate from '../components/Paginate';
 import SearchBar from '../components/SearchBar';
 import ProcurementList from '../components/ProcurementList';
-import Paginate from '../components/Paginate';
-import { filteredResult } from '../utils';
-import Container from 'react-bootstrap/Container';
+
+import { filteredResult, getCurrentPageData } from '../utils';
 
 const Procurement = ({
 	procurementData,
@@ -26,9 +29,6 @@ const Procurement = ({
 	const handleChange = (event) => {
 		let { name, value } = event.target;
 
-		// if (name === 'year' || name === 'pageSize') {
-		// 	value = parseInt(value);
-		// }
 		setFilterParams({
 			...filterParams,
 			[name]: value,
@@ -52,18 +52,20 @@ const Procurement = ({
 		});
 	};
 
-	//current post
+	useEffect(
+		() => () => setProcurementData({ mainData, renderData: mainData }),
+		[]
+	);
 
-	const indexOfLastProcurement = currentPage * filterParams.pageSize;
-	const indexOfFirstProcurement =
-		indexOfLastProcurement - filterParams.pageSize;
-	const currentProcurement = renderData.slice(
-		indexOfFirstProcurement,
-		indexOfLastProcurement
+	//current post
+	const currentProcurement = getCurrentPageData(
+		renderData,
+		currentPage,
+		filterParams.pageSize
 	);
 
 	if (loading) {
-		return <h3>Loading...</h3>;
+		return <Loading />;
 	}
 
 	return (

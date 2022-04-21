@@ -67,6 +67,14 @@ export const filteredResult = (
 	return filteredYear;
 };
 
+//current page data base on page size
+
+export const getCurrentPageData = (renderData, currentPage, pageSize) => {
+	const indexOfLastData = currentPage * pageSize;
+	const indexOfFirstData = indexOfLastData - pageSize;
+	return renderData.slice(indexOfFirstData, indexOfLastData);
+};
+
 //////////////////////////////// API //////////////////////////////////////
 
 export const fetchProcurement = () => {
@@ -78,5 +86,11 @@ export const fetchProcurement = () => {
 export const fetchAgency = () => {
 	return axios.get(
 		'https://morning-hollows-07984.herokuapp.com/api/gov-procurement/agencies'
+	);
+};
+
+export const fetchSupplier = () => {
+	return axios.get(
+		'https://morning-hollows-07984.herokuapp.com/api/gov-procurement/suppliers'
 	);
 };
