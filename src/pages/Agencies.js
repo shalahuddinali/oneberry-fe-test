@@ -1,8 +1,13 @@
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+
+import Loading from '../components/Loading';
 
 const Agencies = ({ agencies, loading }) => {
+	if (loading) {
+		return <Loading />;
+	}
 	return (
 		<Container className="mt-4">
 			<h3>List of Agencies</h3>
