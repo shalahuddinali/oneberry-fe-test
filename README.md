@@ -20,7 +20,7 @@ Endpoint for retrieving list of `procurements` - [https://morning-hollows-07984.
 
 Endpoint for retrieving list of `agencies` - [https://morning-hollows-07984.herokuapp.com/api/gov-procurement/agencies]
 
-The APIs' are being called simultaneously on initial app loading via proxy server. Due to significant size of the of the response, the response are cached for 30 mins upon the first call. This facilitates faster reloading and refreshing of the app on subsequent request.
+The APIs' are being called simultaneously on initial app loading via proxy server. Due to significant size of the response, the response are cached for 30 mins upon the first call. This facilitates faster reloading and refreshing of the app on subsequent request.
 
 ## Technologies used
 
