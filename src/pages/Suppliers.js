@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 
@@ -5,29 +6,26 @@ import Loading from '../components/Loading';
 import Paginate from '../components/Paginate';
 import SupplierList from '../components/SupplierList';
 
-import { fetchSupplier, getCurrentPageData } from '../utils';
+import { getCurrentPageData, queryStringBuilder } from '../utils';
 
-const Suppliers = () => {
-	const [suppliers, setSuppliers] = useState([]);
+const Suppliers = ({ suppliers, loading }) => {
+	const navigate = useNavigate();
 	const [currentPage, setCurrentPage] = useState(1);
-	const [loading, setLoading] = useState(false);
 
-	const suppliersCount = suppliers.length;
 	const pageSize = 300;
+	const suppliersCount = suppliers.length;
 
 	useEffect(() => {
-		const getSuppliers = async () => {
-			setLoading(true);
-			try {
-				const { data } = await fetchSupplier();
-				setSuppliers(data);
-				setLoading(false);
-			} catch (error) {
-				console.log(error.message);
-			}
-		};
-		getSuppliers();
-	}, []);
+		const queryString = queryStringBuilder(currentPage);
+
+		navigate(
+			{
+				path: '/suppliers',
+				search: queryString,
+			},
+			{ replace: true }
+		);
+	}, [navigate, currentPage]);
 
 	const currentSupplier = getCurrentPageData(suppliers, currentPage, pageSize);
 

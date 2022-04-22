@@ -1,4 +1,5 @@
 import Form from 'react-bootstrap/Form';
+import DatePicker from 'react-date-picker';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
@@ -9,6 +10,7 @@ const SearchBar = ({
 	filterParams,
 	handleChange,
 	handleFilter,
+	handleYearChange,
 	mainData,
 }) => {
 	return (
@@ -55,13 +57,14 @@ const SearchBar = ({
 				<Form.Group className="m-md-3">
 					<Form.Label htmlFor="year">Year</Form.Label>
 					<Form.Control
+						className="p-1"
+						as={DatePicker}
+						maxDetail={'decade'}
 						id="year"
-						name="year"
-						// min={1900}
-						// max={2100}
+						clearIcon={null}
 						value={filterParams.year}
-						placeholder="Year"
-						onChange={(e) => handleChange(e)}
+						yearPlaceholder="Year"
+						onChange={(year) => handleYearChange(year)}
 					/>
 				</Form.Group>
 

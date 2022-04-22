@@ -6,7 +6,6 @@ export const cashFormatter = (amount) => {
 		style: 'currency',
 		currency: 'USD', //'USD' to prefix '$' to contract amount as "SGD" will prefix "SGD" instead
 	});
-
 	return formatter.format(amount);
 };
 
@@ -67,8 +66,24 @@ export const filteredResult = (
 	return filteredYear;
 };
 
-//current page data base on page size
+export const queryStringBuilder = (page, paramsObj) => {
+	let queriedParams = `?page=${page}`;
 
+	if (paramsObj) {
+		for (const [key, value] of Object.entries(paramsObj)) {
+			if (value) {
+				if (key === 'year') {
+					queriedParams += `&${key}=${value.getFullYear()}`;
+				}
+				queriedParams += `&${key}=${value}`;
+			}
+		}
+	}
+
+	return queriedParams;
+};
+
+//current page data base on page size
 export const getCurrentPageData = (renderData, currentPage, pageSize) => {
 	const indexOfLastData = currentPage * pageSize;
 	const indexOfFirstData = indexOfLastData - pageSize;

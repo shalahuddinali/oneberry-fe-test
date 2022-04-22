@@ -25,14 +25,14 @@ const ProcurementList = ({ currentPageData }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{currentPageData.map((currentPageData, index) => (
+					{currentPageData.map((data, index) => (
 						<tr key={index}>
-							<td className="text-break">{currentPageData.tenderNo}</td>
-							<td className="text-break">{currentPageData.agency}</td>
-							<td className="text-break">{currentPageData.supplierName}</td>
-							<td className="text-center">{currentPageData.yearAwarded}</td>
+							<td className="text-break">{data.tenderNo}</td>
+							<td className="text-break">{data.agency}</td>
+							<td className="text-break">{data.supplierName}</td>
+							<td className="text-center">{data.yearAwarded}</td>
 							<td className="text-end text-break">
-								{cashFormatter(currentPageData.awardedAmt)}
+								{cashFormatter(data.awardedAmt)}
 							</td>
 						</tr>
 					))}
