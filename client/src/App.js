@@ -9,8 +9,6 @@ import Agencies from './pages/Agencies';
 import Suppliers from './pages/Suppliers';
 import Procurement from './pages/Procurement';
 
-import { fetchProcurement, fetchAgency, fetchSupplier } from './api';
-
 function App() {
 	const [procurements, setProcurements] = useState({
 		mainData: [],
@@ -24,21 +22,17 @@ function App() {
 		const getProcurements = async () => {
 			setLoading(true);
 			try {
-				const [procurementData, agencyData, supplierData] = await axios.all([
-					fetchProcurement(),
-					fetchAgency(),
-					fetchSupplier(),
-				]);
-
+				const allData = await axios.get('/allData');
+				console.log(allData);
 				setProcurements({
-					mainData: procurementData.data.data,
-					renderData: procurementData.data.data,
+					mainData: allData.data.procurements,
+					renderData: allData.data.procurements,
 				});
-				setAgencies(agencyData.data);
-				setSuppliers(supplierData.data);
+				setAgencies(allData.data.agencies);
+				setSuppliers(allData.data.suppliers);
 				setLoading(false);
 			} catch (error) {
-				console.error(error.message);
+				console.error(error);
 			}
 		};
 		getProcurements();

@@ -87,6 +87,13 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 		);
 		window.scrollTo(0, 0);
 	}, [filterParams, currentPage, navigate]);
+	console.log(procurements);
+	// useEffect(() => {
+	// 	return () => {
+	// 		setProcurements({ ...procurements });
+	// 		console.log('here effect', procurements);
+	// 	};
+	// }, []);
 
 	if (loading) {
 		return <Loading />;
