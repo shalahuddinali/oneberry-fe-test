@@ -63,7 +63,7 @@ To Start `SERVER`, in the `ROOT` folder, type:
 npm start
 ```
 
-To Start `FRONDEND`, open another `TERMINAL` window and go to the `CLIENT` folder,type:
+To Start `FRONDEND`, open another `TERMINAL` tab and go to the `CLIENT` folder,type:
 
 ```bash
 npm start
