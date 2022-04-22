@@ -73,4 +73,4 @@ npm start
 
 ### To Visit App:
 
-Simply open any browser and run the URL: [http://localhost:3000/]
+Simply open any browser and run the URL: http://localhost:3000/
