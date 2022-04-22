@@ -51,7 +51,9 @@ From the `ROOT` folder, go into the `CLIENT` folder and type the following comma
 npm install
 ```
 
-[![Image](client/others/File-structure.png)](client/others/File-structure.png)
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://github.com/shalahuddinali/oneberry-fe-test/blob/main/client/others/File-structure.png" width="200" height="400" />
+
+
 
 In order to run the application, the `SERVER` and `FRONTEND` need to be running together
 
