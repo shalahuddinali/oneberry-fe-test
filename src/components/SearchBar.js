@@ -11,6 +11,7 @@ const SearchBar = ({
 	handleChange,
 	handleFilter,
 	handleYearChange,
+	handlePageSizeChange,
 	mainData,
 }) => {
 	return (
@@ -61,7 +62,6 @@ const SearchBar = ({
 						as={DatePicker}
 						maxDetail={'decade'}
 						id="year"
-						clearIcon={null}
 						value={filterParams.year}
 						yearPlaceholder="Year"
 						onChange={(year) => handleYearChange(year)}
@@ -77,7 +77,7 @@ const SearchBar = ({
 						name="pageSize"
 						value={filterParams.pageSize}
 						placeholder="Page Size"
-						onChange={(e) => handleChange(e)}>
+						onChange={(e) => handlePageSizeChange(e)}>
 						<option value={10}>10</option>
 						<option value={20}>20</option>
 						<option value={50}>50</option>

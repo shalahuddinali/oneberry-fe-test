@@ -34,8 +34,18 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 			...filterParams,
 			[name]: value,
 		});
-		console.log(value);
 	};
+
+	const handlePageSizeChange = (event) => {
+		let { name, value } = event.target;
+
+		setCurrentPage(1);
+		setFilterParams({
+			...filterParams,
+			[name]: value,
+		});
+	};
+
 	const handleYearChange = (year) => {
 		setFilterParams({
 			...filterParams,
@@ -51,6 +61,7 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 			year = year.getFullYear();
 		}
 
+		setCurrentPage(1);
 		setProcurements({
 			...procurements,
 			renderData: filteredResult(data, agency, year, rangeSelected, range),
@@ -74,6 +85,7 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 			},
 			{ replace: true }
 		);
+		window.scrollTo(0, 0);
 	}, [filterParams, currentPage, navigate]);
 
 	if (loading) {
@@ -87,6 +99,7 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 				handleChange={handleChange}
 				handleFilter={handleFilter}
 				handleYearChange={handleYearChange}
+				handlePageSizeChange={handlePageSizeChange}
 				filterParams={filterParams}
 				mainData={mainData}
 			/>

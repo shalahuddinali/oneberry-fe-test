@@ -1,10 +1,8 @@
-import axios from 'axios';
-
 //convert contract amount value from db to readable client view
 export const cashFormatter = (amount) => {
 	const formatter = new Intl.NumberFormat('en-US', {
 		style: 'currency',
-		currency: 'USD', //'USD' to prefix '$' to contract amount as "SGD" will prefix "SGD" instead
+		currency: 'USD', //'USD' to prefix '$' to contract amount. "SGD" wouldn't work as it will prefix "SGD" instead of "$"
 	});
 	return formatter.format(amount);
 };
@@ -88,24 +86,4 @@ export const getCurrentPageData = (renderData, currentPage, pageSize) => {
 	const indexOfLastData = currentPage * pageSize;
 	const indexOfFirstData = indexOfLastData - pageSize;
 	return renderData.slice(indexOfFirstData, indexOfLastData);
-};
-
-//////////////////////////////// API //////////////////////////////////////
-
-export const fetchProcurement = () => {
-	return axios.get(
-		'https://morning-hollows-07984.herokuapp.com/api/gov-procurement/procurements?pageSize=32800'
-	);
-};
-
-export const fetchAgency = () => {
-	return axios.get(
-		'https://morning-hollows-07984.herokuapp.com/api/gov-procurement/agencies'
-	);
-};
-
-export const fetchSupplier = () => {
-	return axios.get(
-		'https://morning-hollows-07984.herokuapp.com/api/gov-procurement/suppliers'
-	);
 };

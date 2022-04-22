@@ -9,7 +9,7 @@ import Agencies from './pages/Agencies';
 import Suppliers from './pages/Suppliers';
 import Procurement from './pages/Procurement';
 
-import { fetchProcurement, fetchAgency, fetchSupplier } from './utils';
+import { fetchProcurement, fetchAgency, fetchSupplier } from './api';
 
 function App() {
 	const [procurements, setProcurements] = useState({
