@@ -11,6 +11,7 @@ import {
 	filteredResult,
 	getCurrentPageData,
 	queryStringBuilder,
+	contractAmountRange,
 } from '../utils';
 
 const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
@@ -53,9 +54,8 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 		});
 	};
 
-	const handleFilter = (data, params, range, e) => {
-		e.preventDefault();
-		let { agency, rangeSelected, year } = params;
+	useEffect(() => {
+		let { agency, rangeSelected, year } = filterParams;
 
 		if (year) {
 			year = year.getFullYear();
@@ -64,9 +64,15 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 		setCurrentPage(1);
 		setProcurements({
 			...procurements,
-			renderData: filteredResult(data, agency, year, rangeSelected, range),
+			renderData: filteredResult(
+				mainData,
+				agency,
+				year,
+				rangeSelected,
+				contractAmountRange
+			),
 		});
-	};
+	}, [filterParams]);
 
 	//current post
 	const currentProcurement = getCurrentPageData(
@@ -87,28 +93,19 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 		);
 		window.scrollTo(0, 0);
 	}, [filterParams, currentPage, navigate]);
-	console.log(procurements);
-	// useEffect(() => {
-	// 	return () => {
-	// 		setProcurements({ ...procurements });
-	// 		console.log('here effect', procurements);
-	// 	};
-	// }, []);
 
 	if (loading) {
 		return <Loading />;
 	}
-
+	console.log(procurements);
 	return (
 		<Container className="m-0 p-0">
 			<SearchBar
 				agencies={agencies}
 				handleChange={handleChange}
-				handleFilter={handleFilter}
 				handleYearChange={handleYearChange}
 				handlePageSizeChange={handlePageSizeChange}
 				filterParams={filterParams}
-				mainData={mainData}
 			/>
 			<ProcurementList currentPageData={currentProcurement} />
 			<Paginate

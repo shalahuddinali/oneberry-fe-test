@@ -1,6 +1,5 @@
 import Form from 'react-bootstrap/Form';
 import DatePicker from 'react-date-picker';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
 import { contractAmountRange } from '../utils';
@@ -9,18 +8,12 @@ const SearchBar = ({
 	agencies,
 	filterParams,
 	handleChange,
-	handleFilter,
 	handleYearChange,
 	handlePageSizeChange,
-	mainData,
 }) => {
 	return (
 		<Container className="m-0 ">
-			<Form
-				className="d-flex flex-md-row justify-content-between flex-column"
-				onSubmit={(e) =>
-					handleFilter(mainData, filterParams, contractAmountRange, e)
-				}>
+			<Form className="d-flex flex-md-row justify-content-between flex-column">
 				<Form.Group className="m-md-3">
 					<Form.Label htmlFor="agency">Agency</Form.Label>
 					<Form.Select
@@ -84,16 +77,6 @@ const SearchBar = ({
 						<option value={100}>100</option>
 					</Form.Select>
 				</Form.Group>
-
-				<div className="inl p-0 m-auto">
-					<Button
-						variant="primary"
-						type="submit"
-						size="md"
-						className="mt-md-5 mb-md-3 mt-3">
-						Filter
-					</Button>
-				</div>
 			</Form>
 		</Container>
 	);

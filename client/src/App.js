@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
 import Header from './components/Header';
@@ -32,6 +32,7 @@ function App() {
 				setSuppliers(allData.data.suppliers);
 				setLoading(false);
 			} catch (error) {
+				setLoading(false);
 				console.error(error);
 			}
 		};
@@ -42,6 +43,7 @@ function App() {
 			<Header />
 			<Container className="m-auto mt-md-5 m-0 p-0">
 				<Routes>
+					<Route path="/" element={<Navigate replace to="procurement" />} />
 					<Route
 						path="procurement"
 						element={
