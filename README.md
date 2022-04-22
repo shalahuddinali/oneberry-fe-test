@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Welcome!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements
 
-## Available Scripts
+- [Click here ](client/others/Technical-Test-for-Frontend-and-Backend-Developer.pdf) to view requirement.
 
-In the project directory, you can run:
+## Approach
 
-### `npm start`
+User select the parameters from the provided dropdown selector. The result are retrieved by filtering from the main data which were fetched from the provided endpoint during initial loading.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The result are rendered in a table format which list out their respective parameters.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Image](client/others/table-selector-overview.png)
 
-### `npm test`
+## API List
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Endpoint for retrieving list of `suppliers` - [https://morning-hollows-07984.herokuapp.com/api/gov-procurement/suppliers]
 
-### `npm run build`
+Endpoint for retrieving list of `procurements` - [https://morning-hollows-07984.herokuapp.com/api/gov-procurement/procurements]
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Endpoint for retrieving list of `agencies` - [https://morning-hollows-07984.herokuapp.com/api/gov-procurement/agencies]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The APIs' are being called simultaneously on initial app loading via proxy server. Due to significant size of the of the response, the response are cached for 30 mins upon the first call. This facilitates faster reloading and refreshing of the app on subsequent request.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies used
 
-### `npm run eject`
+- ReactJs
+- Bootstrap
+- NodeJs
+- Heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Live Application URL
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Application is deployed on heroku
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [Click here ](https://oneberry-fe-test.herokuapp.com/) to see the application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Cloning and Running the Application in local
 
-## Learn More
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Go into the project `ROOT` folder and type the following command to install all npm packages for the `PROXY SERVER`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm install
+```
 
-### Code Splitting
+From the `ROOT` folder, go into the `CLIENT` folder and type the following command to install all npm packages for the `REACT APP`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+[![Image](client/others/File-structure.png)](client/others/File-structure.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+In order to run the application, the `SERVER` and `FRONTEND` need to be running together
 
-### Making a Progressive Web App
+To Start `SERVER`, in the `ROOT` folder, type:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+To Start `FRONDEND`, open another `TERMINAL` window and go to the `CLIENT` folder,type:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm start
+```
 
-### Deployment
+[![Image](client/others/Terminal.png 'Running BOTH FRONTEND and SERVER together on TWO different TERMINAL')](client/others/Terminal.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### To Visit App:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Simply open any browser and run the URL: [http://localhost:3000/]
