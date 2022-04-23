@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Agencies from './pages/Agencies';
 import Suppliers from './pages/Suppliers';
 import Procurement from './pages/Procurement';
+import Footer from './components/Footer';
 
 function App() {
 	const [procurements, setProcurements] = useState({
@@ -38,7 +39,7 @@ function App() {
 		getProcurements();
 	}, []);
 	return (
-		<div className="p-0 mb-4 pb-4">
+		<div className="d-flex flex-column p-0 mb-0 min-vh-100">
 			<Header />
 			<Container className="m-auto mt-md-5 m-0 p-0">
 				<Routes>
@@ -73,6 +74,7 @@ function App() {
 					/>
 				</Routes>
 			</Container>
+			<Footer />
 		</div>
 	);
 }
