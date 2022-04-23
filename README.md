@@ -1,4 +1,4 @@
-# Welcome!
+# Oneberry Frontend Technical Assignment
 
 ## Requirements
 
@@ -20,7 +20,7 @@ Endpoint for retrieving list of `procurements` - [https://morning-hollows-07984.
 
 Endpoint for retrieving list of `agencies` - [https://morning-hollows-07984.herokuapp.com/api/gov-procurement/agencies]
 
-The APIs' are being called simultaneously on initial app loading via proxy server. Due to significant size of the of the response, the response are cached for 30 mins upon the first call. This facilitates faster reloading and refreshing of the app on subsequent request.
+The APIs' are being called simultaneously on initial app loading via proxy server. Due to significant size of the response, the response are cached for 30 mins upon the first call. This facilitates faster reloading and refreshing of the app on subsequent request.
 
 ## Technologies used
 
@@ -51,7 +51,9 @@ From the `ROOT` folder, go into the `CLIENT` folder and type the following comma
 npm install
 ```
 
-[![Image](client/others/File-structure.png)](client/others/File-structure.png)
+<img src="https://github.com/shalahuddinali/oneberry-fe-test/blob/main/client/others/File-structure.png" width="200" height="400" />
+
+
 
 In order to run the application, the `SERVER` and `FRONTEND` need to be running together
 
@@ -61,7 +63,7 @@ To Start `SERVER`, in the `ROOT` folder, type:
 npm start
 ```
 
-To Start `FRONDEND`, open another `TERMINAL` window and go to the `CLIENT` folder,type:
+To Start `FRONDEND`, open another `TERMINAL` tab and go to the `CLIENT` folder,type:
 
 ```bash
 npm start
@@ -71,4 +73,4 @@ npm start
 
 ### To Visit App:
 
-Simply open any browser and run the URL: [http://localhost:3000/]
+Simply open any browser and run the URL: http://localhost:3000/

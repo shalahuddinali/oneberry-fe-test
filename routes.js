@@ -5,6 +5,6 @@ const controller = require('./controller');
 const router = express.Router();
 let cache = apicache.middleware;
 
-router.get('/allData', cache('10 minutes'), controller.getAllData);
+router.get('/allData', cache('30 minutes'), controller.getAllData);
 
 module.exports = router;
