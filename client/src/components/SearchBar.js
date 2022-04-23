@@ -12,7 +12,7 @@ const SearchBar = ({
 	handlePageSizeChange,
 }) => {
 	return (
-		<Container className="m-0 ">
+		<Container className="m-0 mt-4 mt-md-0 ">
 			<Form className="d-flex flex-md-row justify-content-between flex-column">
 				<Form.Group className="m-md-3">
 					<Form.Label htmlFor="agency">Agency</Form.Label>
