@@ -38,7 +38,14 @@ const Paginate = ({ itemsCount, currentPage, setCurrentPage, pageSize }) => {
 				)}
 				{paginationRange.map((pageNumber, index) => {
 					if (pageNumber === DOTS) {
-						return <Pagination.Ellipsis key={index} />;
+						return (
+							<Pagination.Ellipsis
+								key={index}
+								pointer-events="none"
+								disabled
+								className="bg-secondary"
+							/>
+						);
 					}
 
 					return (
