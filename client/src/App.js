@@ -22,7 +22,7 @@ function App() {
 		const getProcurements = async () => {
 			setLoading(true);
 			try {
-				const allData = await axios.get('/allData');
+				const allData = await axios.get('/all-data');
 				setProcurements({
 					mainData: allData.data.procurements,
 					renderData: allData.data.procurements,
