@@ -97,7 +97,6 @@ const Procurement = ({ procurements, setProcurements, loading, agencies }) => {
 	if (loading) {
 		return <Loading />;
 	}
-	console.log(procurements);
 	return (
 		<Container className="m-0 p-0">
 			<SearchBar

@@ -23,7 +23,6 @@ function App() {
 			setLoading(true);
 			try {
 				const allData = await axios.get('/allData');
-				console.log(allData);
 				setProcurements({
 					mainData: allData.data.procurements,
 					renderData: allData.data.procurements,
