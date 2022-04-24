@@ -64,16 +64,17 @@ export const filteredResult = (
 	return filteredYear;
 };
 
-export const queryStringBuilder = (page, paramsObj) => {
+export const queryStringBuilder = (page, filterParams) => {
 	let queriedParams = `?page=${page}`;
 
-	if (paramsObj) {
-		for (const [key, value] of Object.entries(paramsObj)) {
+	if (filterParams) {
+		for (const [key, value] of Object.entries(filterParams)) {
 			if (value) {
 				if (key === 'year') {
-					queriedParams += `&${key}=${value.getFullYear()}`;
+					queriedParams += `&${key}=${value.getFullYear().toString()}`;
+				} else {
+					queriedParams += `&${key}=${value}`;
 				}
-				queriedParams += `&${key}=${value}`;
 			}
 		}
 	}

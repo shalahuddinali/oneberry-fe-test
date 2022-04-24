@@ -41,7 +41,6 @@ const Paginate = ({ itemsCount, currentPage, setCurrentPage, pageSize }) => {
 						return (
 							<Pagination.Ellipsis
 								key={index}
-								pointer-events="none"
 								disabled
 								className="bg-secondary"
 							/>
